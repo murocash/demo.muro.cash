@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
+<head>
+
+<title layout:include="this :: title" th:text="${title}">FIX MAIN TITLE</title>
+
+<th:block layout:fragment="script"></th:block>
+
+<th:block layout:fragment="css">
+<link rel="stylesheet" th:href="@{/css/muro.css}">
+</th:block>
+
+</head>
+
+<body>
+
+	<div id="content" layout:fragment="content">
+		<h1 th:text="#{hills-title}"></h1>
+		<h2 th:replace="fragments/muro-fragments :: rows-title"></h2>
+		<div>
+			Data obtained from <a href='https://www.openstreetmap.org'>OpenStreetMap</a>.
+		</div>
+		<div id="muro-content">
+			<table>
+				<thead>
+					<tr>
+						<th scope="col" th:text="#{hill}">Hill
+						<th scope="col" th:text="#{elevation}">Elevation (ft)
+						<th scope="col" th:text="#{distance}">Distance
+						<th scope="col" th:text="#{county}">County
+				<tbody th:class="${ (#authentication.name == 'anonymousUser' || !#authentication.hadBalance) ? 'muro-limited' : ''}">
+					<th:block th:each="peak : ${muroList} ">
+						<tr>
+							<th scope="row" th:with="path='https://www.openstreetmap.org/?mlat=' 
+							+ ${peak.latitude} + '&mlon=' + ${peak.longitude} 
+							+ '#map=9/' + ${peak.latitude} + '/' + ${peak.longitude}">
+								<a th:href="${path}"
+								th:text="${peak.name}"
+								target='_peak'></a>
+							<td th:text="${peak.feet}">
+							<td th:text="${peak.distance}">
+							<td th:text="${peak.completeCountyName}">
+					</th:block>
+				</tbody>
+				<caption th:id="${ (#authentication.name == 'anonymousUser' || !#authentication.hadBalance) ? 'muro-msg' : ''}" th:utext="${msg}"></caption>
+			</table>
+			<div th:replace="fragments/muro-fragments :: paging(${muroPaging})"></div>
+		</div>
+	</div>
+</body>
+</html>

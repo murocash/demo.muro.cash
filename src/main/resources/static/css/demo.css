@@ -1,0 +1,348 @@
+@charset "UTF-8";
+
+html {
+	height: 100%;
+	margin: 0px;
+}
+
+body {
+	font-family: sans-serif;
+	font-size: 16pt;
+	height: 100%;
+	margin : 0px;
+	background-color: lightgrey;	
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+}
+
+header {
+	width: 100%;
+	font-size: 18pt;
+	display: inline-block;
+	background-image: linear-gradient(to bottom right, limegreen, darkgreen);
+	color: floralwhite;
+}
+
+header a.main-menu {
+	text-decoration: none;
+	text-transform: uppercase;
+	font-weight: bolder;
+	color: white;
+	padding: 0.9em 0.4em 0.8em 0.4em;
+}
+
+header a.main-menu:hover {
+	opacity: 90%;
+	border-radius: 5%;
+	background-image: linear-gradient(to bottom right, green, darkgreen);
+}
+
+#site-menu, #muro-admin-menu, #muro-user-menu, #user {
+	display: inline;
+	margin-left: 0px;
+	margin-right: 0px;
+	padding-left: 0.5em;
+}
+
+#site-menu li, #muro-admin-menu li, #muro-user-menu li {
+	display: block;
+	float: left;
+	padding: 0.3em;
+}
+
+#site-menu, #muro-admin-menu, #muro-user-menu {
+	float: left;
+}
+
+#user {
+	margin: 0px;
+	padding: 0px;
+}
+
+#user, #user-info {
+	float: right;
+}
+
+#user-info {
+	margin: 0.2vw;
+}
+
+#user-info, #user-info div {
+	text-align: right;
+	font-size: 0.95em;
+}
+
+#user-info *>.value {
+	font-weight: bold;
+}
+
+#content {
+	flex: 1;
+	width: 100%;
+	text-align: center;
+	overflow-y: auto;
+}
+
+footer {
+	width: 100%;
+	display: inline-block;
+	background-color: honeydew;
+	color: green;
+}
+
+footer p {
+	padding: 0.2em 0.5em 0.2em 0.5em;
+	margin: 0 auto;
+}
+
+footer p a {
+	font-weight: bold;
+	text-decoration: underline;
+	color: darkgreen;
+	font-size: 1.1em;
+	padding: 0.3em 0 0.3em 0;
+}
+
+footer p a:hover {
+	opacity: 70%;
+}
+
+h1 {
+	font-size: 1.5em;
+	color: green;
+}
+
+h2 {
+	font-size: 1.2em;
+}
+
+table {
+	border-collapse: collapse;
+	border: 2px solid grey;
+	letter-spacing: 1px;
+	caption-side: bottom;
+	margin: 0 auto;
+	background-color: white;
+}
+
+thead, tfoot {
+	background-image: linear-gradient(to bottom, green, darkgreen);
+	color: floralwhite;
+}
+
+tbody {
+	background-color: azure;
+}
+
+tbody tr:hover {
+	background-color: lightgreen;
+	color: darkgreen;
+}
+
+td, th {
+	border: 1px solid lightgrey;
+	padding: 0.5em 0.5em;
+}
+
+td {
+	text-align: center;
+}
+
+caption {
+	padding: 0.3em;
+	text-align: center;
+}
+
+.muro-limited a {
+	color: dark-green;
+}
+
+.buttons {
+	padding: 1em;
+}
+
+.button {
+	-webkit-appearance: button;
+	-moz-appearance: button;
+	appearance: button;
+	text-decoration: none;
+	color: black;
+	padding: 0.1em 0.2em 0.1em 0.2em;
+}
+
+.button:visited {
+	-webkit-appearance: button;
+	-moz-appearance: button;
+	appearance: button;
+	text-decoration: none;
+	color: black;
+}
+
+#content {
+	display: inline-block;
+	margin: auto;
+	text-align: center;
+}
+
+#muro-msg {
+	font-size: large;
+	background-color: white;
+	border-color: green;
+	border-style: solid;
+	border-width: thick 1px 1px 1px;
+}
+
+#muro-paging {
+	font-size: 1.1em;
+	padding: 1em;
+}
+
+#muro-paging a {
+	color: white;
+	font-weight: bold;
+	font-size: 1.2em;
+	text-decoration: none;
+	border-radius: 10%;
+	background-image: linear-gradient(to bottom right, green, darkgreen);
+	padding: 0.2em 0.9em 0.2em 0.9em;
+}
+
+#muro-paging a:hover {
+	opacity: 60%;
+}
+
+div.muro-pages {
+	color: black;
+}
+
+.muro-form {
+	margin: 0 auto;
+	display: table;
+	padding: 1em;
+	background-color: white;
+	border: 1 solid grey;
+}
+
+.form-field {
+	display: flex;
+	flex-flow: wrap;
+	padding-top: 0.5em;
+	text-align: left;
+}
+
+.form-field label, .form-field .value {
+	display: table-cell;
+	width: 10em;
+}
+
+.form-field label:after {
+	content: ': ';
+}
+
+.form-buttons {
+	flex: 2;
+}
+
+#muro-shop {
+		width: 100%;
+}
+
+.muro-shop-product {
+	border-radius: 10%;
+	padding: 0.3em;
+	background-image: linear-gradient(to bottom right, limegreen, darkgreen);
+	margin: 0.6em;
+	display: inline-block;
+}
+
+.muro-shop-product a p {
+	padding: 0.2em;
+	margin: 0.2em;
+}
+
+.muro-shop-product .product-text {
+	color: white;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.muro-shop-product .product-text, .muro-shop-product .buttons {
+	display: block;
+	padding: 1em;
+	width: 90%;
+}
+
+.muro-shop-product-amount {
+	font-size: 1.2em;
+	text-transform: uppercase;
+	color: lime;
+}
+
+.muro-shop-product-price {
+	font-size: 1.4em;
+	color: greenyellow;
+}
+
+.muro-shop-product-ppp {
+	font-size: 0.8em;
+}
+
+#muro-waiting-effect {
+  border: 4px solid lightgreen;
+  border-radius: 50%;
+  border-top: 2px solid green;
+  width: 0.7em;
+  height: 0.7em;
+  -webkit-animation: spin 1s linear infinite; /* Safari */
+  animation: spin 1s linear infinite;
+  display: inline-block;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+#muro-payment-receiver {
+	font-size: 0.5em;
+	padding: 1em;
+}
+
+#muro-payment-receiver img {
+	background-color: white;
+	padding: 1em;
+	width: 15em;
+	margin: 1em auto;
+}
+
+@media all and (max-width: 800pt) {
+	
+	header {
+		font-size: 1.2vmax;
+	}
+	
+	#muro-shop {
+    	width: 250pt;
+		margin: 0 auto;
+	}
+	
+	.muro-shop-product {    	
+		display: block;
+    }
+    
+    button, .button, input[type = submit], input {
+    	font-size: 14pt;
+    }
+    
+    footer {
+    font-size: 0.9vmax
+    }
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title layout:title-pattern="$CONTENT_TITLE - $LAYOUT_TITLE" th:text="#{title}">FIX LAYOUT TITLE</title>
+
+<script th:src="@{/js/jsutils4spring.js}"></script>
+<script th:src="@{/js/cashid.js}"></script>
+
+<th:block layout:fragment="css"></th:block>
+<link rel="stylesheet" th:href="@{/css/jsutils4spring.css}">
+<link rel="stylesheet" th:href="@{/css/demo.css}">
+
+</head>
+
+<body>
+	<header>
+		<ul id="site-menu">
+			<li><a class="main-menu" th:href="@{/hills-within-50-miles-nyc}" th:text="#{home}">FIX HOME MESSAGE</a>
+		</ul>
+		<div th:replace="fragments/muro-admin :: menu"></div>
+		<div th:replace="fragments/user :: ${#authentication.name != 'anonymousUser'} ? 'authenticated-user' : 'anonymous-user'"></div>
+		<div th:replace="fragments/user :: csrf"></div>
+	</header>
+	<div id="content" layout:fragment="content"></div>
+	<div th:replace="fragments/jsutils4spring :: jsutils-alert"></div>
+	<footer>
+		<p th:utext="#{demo.footer}">
+			This is a Demo of <a href="https://muro.cash">Muro.Cash</a>, a PayWall for WebSites with large amount of data.
+		</p>
+	</footer>
+</body>
+</html>
