@@ -32,6 +32,11 @@ public class DemoHillController {
 	@Autowired
 	private MessageSource messageSource;
 	
+	@GetMapping("/")
+	public String root() {
+		return "redirect:" + BASE_PATH;
+	}
+	
 	@GetMapping(BASE_PATH)
 	@MuroRequest
 	public ModelAndView listHills(ModelAndView mv, final Principal principal) throws UnknownHostException, URISyntaxException {
