@@ -7,7 +7,11 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
+import com.emiperez.commons.idgenerators.DateTimeIdGenerator;
+
 import cash.muro.aop.MuroAspect;
+import cash.muro.bch.rpc.client.BchnClientProperties;
+import cash.muro.bch.rpc.client.BchnRpcClient;
 import cash.muro.entities.MuroSettings;
 
 @Configuration
@@ -27,6 +31,17 @@ public class MuroSpringConf {
     public MuroAspect aspects() {
         return new MuroAspect();
     }
+	
+	@Bean
+	public BchnRpcClient bchnRpcClient() {
+		return new BchnRpcClient.Builder(bchnClientProperties()).idGenerator(new DateTimeIdGenerator()).build();
+	}
+	
+	@Bean
+	@ConfigurationProperties(prefix = "bchn")
+	public BchnClientProperties bchnClientProperties() {
+		return new BchnClientProperties();
+	}
 	
 	@Bean
 	@ConfigurationProperties(prefix = "muro")
